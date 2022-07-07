@@ -1,3 +1,5 @@
+<br/>
+
 <p align="center">
     <img src="./assets/logo.png" width="218px"  alt="Stencil logo" />
 </p>
