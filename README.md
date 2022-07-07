@@ -14,6 +14,18 @@ Since version V4 of [Strapi](https://github.com/strapi/strapi) we have more cont
 
 Stencil offers two methods to build and parse queries using package [qs](https://github.com/ljharb/qs) under the hood as seen in the docs of [Strapi](https://docs.strapi.io/developer-docs/latest/developer-resources/database-apis-reference/rest/filtering-locale-publication.html#filtering). This is Stencil's only direct dependency thus staying lightweight.
 
+## Installation
+
+```bash
+npm install stencil-qs
+```
+
+or if you are using yarn
+
+```bash
+yarn add stencil-qs
+```
+
 ## Usage
 
 You can use Stencil to either create or read query strings used to interact with the
