@@ -14,7 +14,7 @@ interface TestType {
 describe('Stringify method works properly', () => {
   it('Check type safety', () => {
     const query = Stencil.stringify<TestType>({
-      select: ['id'],
+      fields: ['id'],
       populate: ['hashtag', 'test', 'image'],
       filters: {
         id: { $between: [1, 100] },
