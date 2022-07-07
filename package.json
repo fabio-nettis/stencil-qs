@@ -3,6 +3,16 @@
   "version": "1.0.1",
   "description": "Stencil is an easy-to-use solution to generate queries for the REST API provided by Strapi.",
   "main": "dist/index.js",
+  "files": [
+    "dist/*.js",
+    "dist/**/&.js",
+    "dist/*.js.map",
+    "dist/**/&.js.map",
+    "dist/*.d.ts",
+    "dist/**/&.d.ts",
+    "dist/*.d.ts.map",
+    "dist/**/&.d.ts.map"
+  ],
   "repository": {
     "url": "https://github.com/fabio-nettis/stencil",
     "type": "git"
