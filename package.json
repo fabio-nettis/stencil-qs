@@ -1,0 +1,44 @@
+{
+  "name": "stencil-qs",
+  "version": "1.0.0",
+  "description": "Stencil is an easy-to-use solution to generate queries for the REST API provided by Strapi.",
+  "main": "dist/index.js",
+  "repository": {
+    "url": "https://github.com/fabio-nettis/stencil",
+    "type": "git"
+  },
+  "author": {
+    "name": "Fabio Nettis",
+    "email": "nettisfabio@gmail.com",
+    "url": "https://github.com/fabio-nettis"
+  },
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist",
+    "lint": "yarn eslint ./src",
+    "format": "yarn prettier ./src --write",
+    "build": "yarn clean && yarn lint && yarn format && tsc",
+    "test": "yarn build && yarn jest",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn test && yarn lint",
+    "preversion": "yarn lint",
+    "version": "yarn format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.4",
+    "@types/qs": "^6.9.7",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^28.1.2",
+    "prettier": "^2.7.1",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "qs": "^6.11.0"
+  }
+}
