@@ -1,2 +1,4 @@
+import Stencil from './classes/stencil';
+
 export * from './types/query';
-export * as Stencil from './classes/stencil';
+export default Stencil;
