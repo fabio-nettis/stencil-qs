@@ -1,6 +1,6 @@
 {
   "name": "stencil-qs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Stencil is an easy-to-use solution to generate queries for the REST API provided by Strapi.",
   "main": "dist/index.js",
   "repository": {
