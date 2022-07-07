@@ -14,7 +14,7 @@
     "dist/**/*.d.ts.map"
   ],
   "repository": {
-    "url": "https://github.com/fabio-nettis/stencil",
+    "url": "https://github.com/fabio-nettis/stenci-qs",
     "type": "git"
   },
   "author": {
