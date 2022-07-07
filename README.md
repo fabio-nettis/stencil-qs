@@ -8,6 +8,8 @@
 <p align="center">An easy-to-use solution to generate queries for the REST API provided by
 popular headless CMS <a href="https://github.com/strapi/strapi">Strapi</a>.</p>
 
+<br/>
+
 ## Why was this build?
 
 Since version V4 of [Strapi](https://github.com/strapi/strapi) we have more control over filtering and controlling relations when using the REST API, this also introduces some complexity to requesting an API. Stencil aims to reduce this complexity.
