@@ -1,6 +1,6 @@
 {
   "name": "stencil-qs",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Stencil is an easy-to-use solution to generate queries for the REST API provided by Strapi.",
   "main": "dist/index.js",
   "files": [
@@ -13,9 +13,6 @@
     "dist/*.d.ts.map",
     "dist/**/*.d.ts.map"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "repository": {
     "url": "git@github.com:fabio-nettis/stencil-qs.git",
     "type": "git"
