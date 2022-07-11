@@ -13,8 +13,11 @@
     "dist/*.d.ts.map",
     "dist/**/*.d.ts.map"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "repository": {
-    "url": "https://github.com/fabio-nettis/stenci-qs",
+    "url": "git@github.com:fabio-nettis/stencil-qs.git",
     "type": "git"
   },
   "author": {
