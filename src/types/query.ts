@@ -95,7 +95,12 @@ export interface ArrayFilterOperator<T> {
 }
 
 export type PopulationMap<T> = {
-  [K in keyof T]?: boolean;
+  [K in keyof T]?: T[K] extends object
+    ? T[K] extends Array<any>
+      ? // @ts-ignore
+        PopulationMap<T[K][0]> | boolean
+      : PopulationMap<T[K]> | boolean
+    : boolean;
 };
 
 export type Field<T, K extends keyof T> = {
