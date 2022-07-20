@@ -170,3 +170,8 @@ export interface QueryOptions<T> {
    */
   locale?: Array<string> | string;
 }
+
+export interface UnifiedFormat {
+  id?: string;
+  attributes?: Record<string, any>;
+}
