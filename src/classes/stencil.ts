@@ -1,8 +1,11 @@
 import qs from 'qs';
+
+import Internals from './internals';
 import { QueryOptions } from '../types/query';
 
 class Stencil {
   private static instance: Stencil;
+  private static internals = Internals;
 
   private constructor() {}
 
@@ -38,6 +41,53 @@ class Stencil {
   parse<T>(query: string, options?: qs.IParseOptions): QueryOptions<T> {
     return qs.parse(query, options);
   }
+
+  /**
+   * Stencil now also exports some handy functions to help you with the
+   * consumption of responses from the API.
+   */
+  api = {
+    /**
+     * This function is used to flatten any response from the API. The response
+     * is usually a deeply nested object (unified response format). This function
+     * will iterate over the object and remove all nesting.
+     *
+     * ### Features
+     *
+     * - Supports nested objects
+     * - Supports arrays
+     * - Supports null values
+     * - Supports components
+     * - Supports dynamic zones
+     *
+     * ### Keep in mind
+     *
+     * When using this function, that the response is not always in the
+     * unified response format, like in the users-permissions plugin, if no data key
+     * is found in the response the function will throw.
+     *
+     * @param {Object} input The response from the API
+     * @param {Boolean} isComponent Determines if the response is a component, you usually do not have to pass this option manually.
+     * @returns {Object} The sanitized response
+     */
+    flatten<T>(input: any, isComponent?: boolean): T {
+      if (!input?.data) {
+        throw new Error(
+          'Input does not contain a data key. Please check your response.',
+        );
+      }
+
+      // If the input is not an array, call reformat on it
+      if (!Array.isArray(input.data)) {
+        return Stencil.internals.reformatResponse<T>(input.data, isComponent);
+      }
+
+      // If the input is a array, call reformat on each element
+      return input.data.map((item: any) => {
+        return Stencil.internals.reformatResponse(item, isComponent);
+      });
+    },
+  };
 }
 
 export default Stencil.getInstance();
