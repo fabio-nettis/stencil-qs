@@ -70,23 +70,7 @@ class Stencil {
      * @param {Boolean} isComponent Determines if the response is a component, you usually do not have to pass this option manually.
      * @returns {Object} The sanitized response
      */
-    flatten<T>(input: any, isComponent?: boolean): T {
-      if (!input?.data) {
-        throw new Error(
-          'Input does not contain a data key. Please check your response.',
-        );
-      }
-
-      // If the input is not an array, call reformat on it
-      if (!Array.isArray(input.data)) {
-        return Stencil.internals.reformatResponse<T>(input.data, isComponent);
-      }
-
-      // If the input is a array, call reformat on each element
-      return input.data.map((item: any) => {
-        return Stencil.internals.reformatResponse(item, isComponent);
-      });
-    },
+    flatten: Stencil.internals.flatten,
   };
 }
 
