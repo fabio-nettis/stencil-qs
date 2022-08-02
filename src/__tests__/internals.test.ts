@@ -101,6 +101,7 @@ describe('Transformation of unified data structure works as expected.', () => {
   it('Internals have expected helpers', () => {
     expect(Internals.struct).toBeDefined();
     expect(Internals.isNull).toBeDefined();
+    expect(Internals.flatten).toBeDefined();
     expect(Internals.isProperty).toBeDefined();
     expect(Internals.isComponent).toBeDefined();
   });

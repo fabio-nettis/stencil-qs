@@ -146,12 +146,15 @@ class StencilInternals {
 
     // If the input is not an array, call reformat on it
     if (!Array.isArray(input.data)) {
-      return this.reformatResponse<T>(input.data, isComponent);
+      return StencilInternals.getInstance().reformatResponse<T>(
+        input.data,
+        isComponent,
+      );
     }
 
     // If the input is a array, call reformat on each element
     return input.data.map((item: any) => {
-      return this.reformatResponse(item, isComponent);
+      return StencilInternals.getInstance().reformatResponse(item, isComponent);
     });
   }
 }
