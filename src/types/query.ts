@@ -14,9 +14,13 @@ export interface OffsetPagination {
 
 export interface FilterOperator<T, K extends keyof T> {
   /**
-   * Description: Equal
+   * Description: Equal (case-sensitive)
    */
   $eq?: T[K];
+  /**
+   * Description: Equal
+   */
+  $eqi?: T[K];
   /**
    * Description: Not equal
    */
