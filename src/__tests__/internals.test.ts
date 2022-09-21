@@ -27,12 +27,31 @@ interface TestType {
   ];
 }
 
+type Languages = 'de' | 'fr' | 'it';
+
 function getLocalTestData() {
   return {
     data: [
       {
         id: 1,
         attributes: {
+          localizations: {
+            data: [
+              {
+                id: 13,
+                attributes: {
+                  locale: 'fr',
+                },
+              },
+              {
+                id: 14,
+                attributes: {
+                  locale: 'it',
+                },
+              },
+            ],
+          },
+          locale: 'de',
           no: 'TEST',
           imageUrl: 'htto://localhost:1337/api/products/1/image',
           unitCode: {
@@ -104,5 +123,19 @@ describe('Transformation of unified data structure works as expected.', () => {
     expect(Internals.flatten).toBeDefined();
     expect(Internals.isProperty).toBeDefined();
     expect(Internals.isComponent).toBeDefined();
+  });
+
+  it('Localization util works as expected', () => {
+    const testData = getLocalTestData();
+    const testData2 = { data: testData.data[0] };
+
+    const entryArr = Stencil.i18n.array<Languages, TestType>(testData);
+    const entryObj = Stencil.i18n.single<Languages, TestType>(testData2);
+
+    const isInstanceArr = entryArr instanceof Array;
+    const isInstanceObj = entryObj instanceof Object;
+
+    expect(isInstanceArr).toBe(true);
+    expect(isInstanceObj).toBe(true);
   });
 });

@@ -44,6 +44,12 @@ class Stencil {
 
   /**
    * Stencil now also exports some handy functions to help you with the
+   * consumption of localized entries.
+   */
+  i18n = Stencil.internals.i18n;
+
+  /**
+   * Stencil now also exports some handy functions to help you with the
    * consumption of responses from the API.
    */
   api = {

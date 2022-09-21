@@ -179,3 +179,11 @@ export interface UnifiedFormat {
   id?: string;
   attributes?: Record<string, any>;
 }
+
+export type WithEntityID<T> = T & { id: string };
+
+export type LocalizedResponse<T> = T & { localizations: Array<T> };
+
+export type Injection<K, T> = (current: T, main: T, locale: K) => T;
+
+export type ExecutionType = 'single' | 'array';
